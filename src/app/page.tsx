@@ -14,7 +14,6 @@ export default function Home() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [ image, setImage ] = useState<number[]>(new Array(28*28).fill(0));
   const [ recognition, setRecognition ] = useState<number[] | null>(null);
-  const [ lastCoords, setLastCoords ] = useState([ -1, -1 ]);
   const [ since, setSince ] = useState(-1);
   const [ isDrawing, setIsDrawing ] = useState(false);
   const TIME_UNTIL_FULLY_WHITE = 10;
@@ -62,7 +61,6 @@ export default function Home() {
       setImage(newImage);
     }
 
-    setLastCoords([ x, y ]);
     setSince(Date.now());
 
     // if its close to the edges, paint the surrounding pixels
